@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "244488417205",
+    "firebase_url": "https://letsdoit-84d4a.firebaseio.com",
+    "project_id": "letsdoit-84d4a",
+    "storage_bucket": "letsdoit-84d4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244488417205:android:9073b414011d49ba",
+        "android_client_info": {
+          "package_name": "com.example.letsdoit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "244488417205-vlg15fa9gvgn4cj7ontaisbb6qmm297r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.letsdoit",
+            "certificate_hash": "4fc5a048068ec0f529f016331e439c886a661681"
+          }
+        },
+        {
+          "client_id": "244488417205-3b99c181mbigrgkuo2ge9rosjd6q4e4b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3oxDxUn1Ekm7aIC_NvTOJ5rAD9oA5zs8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "244488417205-3b99c181mbigrgkuo2ge9rosjd6q4e4b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
