@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.letsdoit.Fragments.VerifyUserDialogFragment;
 import com.example.letsdoit.MainActivity;
 import com.example.letsdoit.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -115,6 +116,8 @@ public class RegisterUserActivity extends BaseActivity implements View.OnClickLi
                             Log.d(MINE, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
+
+                            showVerificationDialog("Bekræft venligst email", "Vi har sendt dig en email, hvor du bedes bekræfte din email adresse!  Hvis du ikke modtager en email kan du sende den igen!", "Send igen", "Login");
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(MINE, "createUserWithEmail:failure", task.getException());
@@ -274,7 +277,18 @@ public class RegisterUserActivity extends BaseActivity implements View.OnClickLi
         }
     }
 
+    public void showVerificationDialog(String title, String message, String resendButtonText, String loginButtonText){
+        VerifyUserDialogFragment fragment = VerifyUserDialogFragment.newInstance(title, message, resendButtonText, loginButtonText);
+        fragment.show(getSupportFragmentManager(), "dialog");
+    }
 
+    public void resendVerificationEmail(){
+
+    }
+
+    public void loginWhenVerified(){
+
+    }
 
 
 }
