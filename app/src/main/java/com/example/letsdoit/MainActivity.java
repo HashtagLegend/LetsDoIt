@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.letsdoit.Authentication.RegisterUserActivity;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,6 +23,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
+
+        AdView adView = (AdView) findViewById(R.id.adView);
+
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        adView.loadAd(adRequest);
+
 
         btnSignOut = (Button) findViewById(R.id.mainBtnSignOut);
         btnSignOut.setOnClickListener(new View.OnClickListener() {
