@@ -206,6 +206,8 @@ public class RegisterUserActivity extends BaseActivity implements View.OnClickLi
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                             navigateIfVerified(user);
+                            //ToDo Shows up even right before navigation if user.isEmailVerified;
+                            showVerificationDialog("Bekræft venligst email", "Vi har sendt dig en email, hvor du bedes bekræfte din email adresse!  Hvis du ikke modtager en email kan du sende den igen!", "Send igen", "Login");
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -278,16 +280,25 @@ public class RegisterUserActivity extends BaseActivity implements View.OnClickLi
     }
 
     public void showVerificationDialog(String title, String message, String resendButtonText, String loginButtonText){
-        VerifyUserDialogFragment fragment = VerifyUserDialogFragment.newInstance(title, message, resendButtonText, loginButtonText);
-        fragment.show(getSupportFragmentManager(), "dialog");
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        if(user.isEmailVerified()){
+            VerifyUserDialogFragment fragment = VerifyUserDialogFragment.newInstance(title, message, resendButtonText, loginButtonText);
+            fragment.show(getSupportFragmentManager(), "dialog");
+        }
+        else{
+            navigateIfVerified(user);
+        }
+
     }
 
     public void resendVerificationEmail(){
-
+        sendEmailVerification();
     }
 
     public void loginWhenVerified(){
-
+        FirebaseUser user = mAuth.getCurrentUser();
+        navigateIfVerified(user);
     }
 
 
